@@ -12,7 +12,6 @@ config_version=5
 
 config/name="Bubbles-hunter-2"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
 
 [rendering]
 
