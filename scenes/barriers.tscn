@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://ct3n2ahq4vtl5"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_h5i5h"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4sl4a"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s4h42"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_18ybd"]
+
+[node name="Barriers" type="Node2D"]
+
+[node name="TopBarrier" type="StaticBody2D" parent="."]
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopBarrier"]
+position = Vector2(0, 6)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_h5i5h")
+
+[node name="DownBarrier" type="StaticBody2D" parent="."]
+position = Vector2(-1, 643)
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DownBarrier"]
+shape = SubResource("WorldBoundaryShape2D_4sl4a")
+
+[node name="LeftBarrier" type="StaticBody2D" parent="."]
+position = Vector2(0, 222)
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBarrier"]
+position = Vector2(4, 0)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_s4h42")
+
+[node name="RightBarrier" type="StaticBody2D" parent="."]
+position = Vector2(1147, 209)
+collision_mask = 6
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightBarrier"]
+rotation = 4.71239
+shape = SubResource("WorldBoundaryShape2D_18ybd")

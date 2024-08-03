@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://dou6jw0nbbvgh"]
+[gd_scene load_steps=4 format=3 uid="uid://dou6jw0nbbvgh"]
+
+[ext_resource type="PackedScene" uid="uid://b7g620yydcm7d" path="res://scenes/necromancer.tscn" id="2_eg4bl"]
+[ext_resource type="PackedScene" uid="uid://btj4vmbad8sqi" path="res://scenes/bubble_score.tscn" id="3_euac4"]
+[ext_resource type="PackedScene" uid="uid://ct3n2ahq4vtl5" path="res://scenes/barriers.tscn" id="3_wca42"]
 
 [node name="MainNode" type="Node2D"]
+
+[node name="Necromancer" parent="." instance=ExtResource("2_eg4bl")]
+
+[node name="Barriers" parent="." instance=ExtResource("3_wca42")]
+
+[node name="BubbleScore" parent="." instance=ExtResource("3_euac4")]
