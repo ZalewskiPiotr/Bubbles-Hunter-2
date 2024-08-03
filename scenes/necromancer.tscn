@@ -72,6 +72,7 @@ size = Vector2(25, 38)
 
 [node name="Necromancer" type="CharacterBody2D"]
 position = Vector2(152, 113)
+collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_m78yp")
 metadata/_edit_group_ = true

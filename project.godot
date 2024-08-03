@@ -41,6 +41,11 @@ player_move_down={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Walls"
+2d_physics/layer_2="Player"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
