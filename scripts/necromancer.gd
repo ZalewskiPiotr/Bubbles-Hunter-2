@@ -14,4 +14,3 @@ func _physics_process(delta : float):
 func set_player_speed():
 	var direction : Vector2 = Input.get_vector("player_move_left","player_move_right","player_move_up","player_move_down")
 	velocity = direction * SPEED
-	print(velocity)
