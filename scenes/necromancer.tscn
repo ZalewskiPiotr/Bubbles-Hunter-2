@@ -74,12 +74,14 @@ size = Vector2(25, 38)
 position = Vector2(152, 113)
 motion_mode = 1
 script = ExtResource("1_m78yp")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3882q")
 autoplay = "default"
-frame_progress = 0.594928
+frame_progress = 0.595363
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(1.5, 25)
 shape = SubResource("RectangleShape2D_3odxt")
