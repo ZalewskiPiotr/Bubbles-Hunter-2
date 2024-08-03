@@ -57,3 +57,8 @@ func create_position():
 	# obszaru gry
 	position = get_viewport().get_mouse_position()
 #endregion
+
+func hit():
+	print("hit")
+	queue_free()
+	
