@@ -9,7 +9,7 @@ radius = 15.0
 [node name="BubbleScore" type="CharacterBody2D"]
 position = Vector2(203, 122)
 collision_layer = 4
-collision_mask = 7
+collision_mask = 15
 script = ExtResource("1_5x7ew")
 metadata/_edit_group_ = true
 

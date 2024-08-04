@@ -50,6 +50,7 @@ player_move_down={
 2d_physics/layer_1="Walls"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Bubbles"
+2d_physics/layer_4="Enemy"
 
 [rendering]
 

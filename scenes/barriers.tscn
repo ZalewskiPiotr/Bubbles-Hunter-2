@@ -11,7 +11,7 @@
 [node name="Barriers" type="Node2D"]
 
 [node name="TopBarrier" type="StaticBody2D" parent="."]
-collision_mask = 2
+collision_mask = 14
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopBarrier"]
@@ -21,7 +21,7 @@ shape = SubResource("WorldBoundaryShape2D_h5i5h")
 
 [node name="DownBarrier" type="StaticBody2D" parent="."]
 position = Vector2(-1, 643)
-collision_mask = 2
+collision_mask = 14
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DownBarrier"]
@@ -29,7 +29,7 @@ shape = SubResource("WorldBoundaryShape2D_4sl4a")
 
 [node name="LeftBarrier" type="StaticBody2D" parent="."]
 position = Vector2(0, 222)
-collision_mask = 2
+collision_mask = 14
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBarrier"]
@@ -39,7 +39,7 @@ shape = SubResource("WorldBoundaryShape2D_s4h42")
 
 [node name="RightBarrier" type="StaticBody2D" parent="."]
 position = Vector2(1147, 209)
-collision_mask = 6
+collision_mask = 14
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightBarrier"]

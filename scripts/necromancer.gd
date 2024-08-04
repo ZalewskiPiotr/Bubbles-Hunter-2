@@ -40,8 +40,10 @@ func detect_collision():
 		if collider is BubbleScore:
 			collider.hit() # zawołamy metodę hit z BubbleScore
 			GameEvents.OnScoreBubbleHit.emit() # z Necromancer wyemitujemy sygnał AddPoint. Ten sygnał złapie HUD i zaktualizuje punktację
-		elif collider.name == "BubbleKiller":
-			pass
+		elif collider is BubbleKiller:
+			print("killer hit")
+			collider.hit()
+			get_tree().reload_current_scene()
 			# zawołamy metodę hit z BubbleKiller, która usunie bańkę
 			# wyemitujemy sygnał death
 #endregion
