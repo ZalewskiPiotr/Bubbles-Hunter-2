@@ -1,4 +1,9 @@
 CONSTS
+
+Script main_node
+const MIN_BUBBLE_AMOUNT : int = 1	# Minimum number of bubbles in one draw
+const MAX_BUBBLE_AMOUNT : int = 5	# Maximum number of bubbles in one draw
+
 Script necromancer
 const SPEED = 300.0		# Player's speed
 
