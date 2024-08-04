@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name BubbleScore
+class_name BubbleKiller
 
 
 #region Stałe i zmienne
@@ -19,7 +19,6 @@ func _ready():
 	randomize() # Będzie trochę losować to się przyda
 	create_velocity_vector()
 	_speed = create_speed()
-	create_texture()
 	create_position()
 
 
@@ -52,15 +51,6 @@ func create_speed() -> float:
 	return randf_range(SPEED_MIN, SPEED_MAX)
 
 
-## Funkcja tworzy grafikę bańki
-##
-## Mamy kilka obrazków na dysku. Losujemy numer obrazka, dodajemy go do ścieżki i ładujemy obrazek
-func create_texture():
-	var sprite_number = randi() % 7 + 1 # +1 powoduje, że funkcja randi() startuje od 1 zamiast od 0
-	var path = "res://assets/bubbles/bubble_" + str(sprite_number) + ".png"
-	_sprite.texture = load(path)
-	
-
 ## Funkcja wskazuje w jakim miejscu pojawi się bańka
 ##
 ## Zajrzyj na TODO w funkcji a jak już zrobisz dobrze to opisz to w tym miejscu
@@ -79,3 +69,4 @@ func create_position():
 func hit():
 	queue_free()
 #endregion
+
