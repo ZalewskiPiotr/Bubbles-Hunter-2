@@ -14,6 +14,10 @@ config/name="Bubbles-hunter-2"
 run/main_scene="res://scenes/main_node.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 
+[autoload]
+
+GameEvents="*res://scripts/game_events.gd"
+
 [input]
 
 player_move_left={
