@@ -25,6 +25,9 @@ func _ready():
 
 
 #region Tworzenie baniek
+## Generowanie losowej ilości baniek
+##
+## Funkcja zarządza tworzeniem losowej ilości baniek
 func create_some_score_bubbles():
 	var bubbles_amount = randi_range(MIN_BUBBLE_AMOUNT, MAX_BUBBLE_AMOUNT)
 	for i : int in bubbles_amount:
