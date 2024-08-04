@@ -23,10 +23,21 @@ func _ready():
 	#endregion
 #endregion
 
-#region Tworzenie baniek BubbleScore
+
+#region Tworzenie baniek
 func create_some_score_bubbles():
 	var bubbles_amount = randi_range(MIN_BUBBLE_AMOUNT, MAX_BUBBLE_AMOUNT)
 	for i : int in bubbles_amount:
 		var new_bubble = _bubble_score_scene.instantiate()
 		add_child(new_bubble)
+
+## Wyzwalacz generowania baniek
+##
+## Poniższa funkcja jest wyzwalana przez TimerBubbleGenerator, zgodnie z ustawieniami timera.
+## Funkcja co określony czas generuje nowe bańki		
+func _on_timer_bubble_generator_timeout():
+	create_some_score_bubbles()
 #endregion
+
+
+

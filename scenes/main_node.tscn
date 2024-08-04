@@ -16,3 +16,11 @@ script = ExtResource("1_q4fcm")
 [node name="BubbleScore" parent="." instance=ExtResource("3_euac4")]
 
 [node name="Hud" parent="." instance=ExtResource("4_0xqhm")]
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="TimerBubbleGenerator" type="Timer" parent="Timers"]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timers/TimerBubbleGenerator" to="." method="_on_timer_bubble_generator_timeout"]
