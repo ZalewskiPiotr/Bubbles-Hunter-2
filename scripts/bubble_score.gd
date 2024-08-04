@@ -1,14 +1,20 @@
 extends CharacterBody2D
 class_name BubbleScore
 
+
 #region Stałe i zmienne
-const SPEED_MIN : float = 0.1	# Minimalna szybkość bańki
-const SPEED_MAX : float = 5.0	# Maksymalna szybkość bańki
-var _speed : float				# Szybkość bańki
-@onready var _sprite = $Sprite2D
+const SPEED_MIN : float = 0.1		# Minimalna szybkość bańki
+const SPEED_MAX : float = 5.0		# Maksymalna szybkość bańki
+var _speed : float					# Szybkość bańki
+@onready var _sprite = $Sprite2D	# Obiekt przechowujący grafikę
 #endregion
 
 
+#region Metody wbudowane
+## Przygotowanie obiektu bańki
+##
+## W momencie gdy obiekt jest gotowy, czyli ma załadowane wszystkie podrzędne obiekty, to ustawiamy
+## parametry startowe, takie jak szybkośc, kiedunek, grafika, pozycja, itp
 func _ready():
 	randomize() # Będzie trochę losować to się przyda
 	create_velocity_vector()
@@ -17,10 +23,15 @@ func _ready():
 	create_position()
 
 
+## Poruszanie obiektem
+##
+## Obiekt bańki w czasie tworzenia dostaje parametry początkowe. Dzięki temu sam się porusza.
+## W metodzie poniżej zadbano o to, aby po zderzeniu z przeszkodą obiekt dalej pozostawałw ruchu
 func _physics_process(delta):
 	var collision : KinematicCollision2D = move_and_collide(velocity * _speed)
 	if collision:
 		velocity = velocity.bounce(collision.get_normal())
+#endregion
 		
 		
 #region Tworzenie nowej bańki
@@ -59,7 +70,13 @@ func create_position():
 	position = get_viewport().get_mouse_position()
 #endregion
 
+
+#region Usunięcie obiektu bańki
+## Reakcja na trafienie bańki przez gracza
+##
+## W momencie kiedy bańka zostanie trafiona przez gracza, wywoływana jest ta metoda. 
+## Zaimplementowano najprostszą reakcję, czy usunięcie bańki
 func hit():
 	print("hit")
 	queue_free()
-	
+#endregion

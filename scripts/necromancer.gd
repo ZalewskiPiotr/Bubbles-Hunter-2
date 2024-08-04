@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Necromancer
 
 const SPEED = 300.0		# Szybkość gracza
 
@@ -31,7 +32,6 @@ func detect_collision():
 		var collision : KinematicCollision2D = get_slide_collision(i)
 		var collider : Object = collision.get_collider()
 		if collider is BubbleScore:
-			print("Collider bubble score")
 			pass
 			#collider.hit() # zawołamy metodę hit z BubbleScore
 			# z Necromancer wyemitujemy sygnał AddPoint. Ten sygnał złapie HUD i zaktualizuje punktację
