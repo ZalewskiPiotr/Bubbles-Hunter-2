@@ -7,5 +7,5 @@ extends Node
 ## Zebranie bańki przez gracza
 ## 
 ## Emisja sygnału: necromancer.gd -> detect_collision()
-## Odbiór sygnału: TODO: dopisać gdzie jest odbierany ????
+## Odbiór sygnału: hud.gd -> _ready()
 signal OnScoreBubbleHit
