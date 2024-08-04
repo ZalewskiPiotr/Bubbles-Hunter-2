@@ -77,6 +77,5 @@ func create_position():
 ## W momencie kiedy bańka zostanie trafiona przez gracza, wywoływana jest ta metoda. 
 ## Zaimplementowano najprostszą reakcję, czy usunięcie bańki
 func hit():
-	print("hit")
 	queue_free()
 #endregion
