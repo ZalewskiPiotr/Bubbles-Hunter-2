@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name BubbleScore
 
 #region Stałe i zmienne
 const SPEED_MIN : float = 0.1	# Minimalna szybkość bańki
