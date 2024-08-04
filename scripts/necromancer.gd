@@ -1,10 +1,16 @@
 extends CharacterBody2D
 class_name Necromancer
 
+
+#region Stałe i zmienne
 const SPEED = 300.0		# Szybkość gracza
+#endregion
+
 
 #region Wbudowane funkcje silnika Godot
 ## Funkcja zarządza przebiegiem wszystkiego co dzieje się z graczem
+##
+## Funkcja zarządza takimi aspektami gracza jak ruch, animacja, kolizje, itd
 func _physics_process(delta: float):
 	set_player_speed()
 	move_and_slide()
