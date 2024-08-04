@@ -38,9 +38,8 @@ func detect_collision():
 		var collision : KinematicCollision2D = get_slide_collision(i)
 		var collider : Object = collision.get_collider()
 		if collider is BubbleScore:
-			pass
-			#collider.hit() # zawołamy metodę hit z BubbleScore
-			# z Necromancer wyemitujemy sygnał AddPoint. Ten sygnał złapie HUD i zaktualizuje punktację
+			collider.hit() # zawołamy metodę hit z BubbleScore
+			GameEvents.OnScoreBubbleHit.emit() # z Necromancer wyemitujemy sygnał AddPoint. Ten sygnał złapie HUD i zaktualizuje punktację
 		elif collider.name == "BubbleKiller":
 			pass
 			# zawołamy metodę hit z BubbleKiller, która usunie bańkę
