@@ -58,5 +58,9 @@ func _on_timer_bubble_generator_timeout():
 #endregion
 
 func killer_bubble_hit_player():
+	# Próbowałem na różne sposoby. Finalnie trzeba będzie dodać jakiś message na nulla. Można
+	# też przejść na ręczne zmienianie scen lub ładowanie node jako instancji ale wtedy trzeba
+	# przebudować wszystko bo stronę menu mamy kilka razy na ekranie. Można też zmienić podejście
+	# w programie na ukrywanie obiektów na jednej scenie a menu zrobić jako canvaslayer
 	get_tree().change_scene_to_packed(_start_scene)
 
