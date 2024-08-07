@@ -9,6 +9,7 @@ const MIN_BUBBLE_AMOUNT : int = 1	# Minimum number of bubbles in one draw
 const MAX_BUBBLE_AMOUNT : int = 5	# Maximum number of bubbles in one draw
 var _bubble_score_scene = preload("res://scenes/bubble_score.tscn")		# Scena potrzebna do tworzenia wielu obiektów typu tej sceny
 var _bubble_killer_scene = preload("res://scenes/bubble_killer.tscn")	# Scena potrzebna do tworzenia wielu obiektów typu tej sceny
+var _start_scene : PackedScene = load("res://scenes/start_menu.tscn")
 #endregion
 
 #region Wbudowane funkcje silnika Godot
@@ -16,6 +17,7 @@ var _bubble_killer_scene = preload("res://scenes/bubble_killer.tscn")	# Scena po
 ##
 ## Ustawiamy to co potrzebujemy na starcie gry
 func _ready():
+	GameEvents.OnKillerBubbleHit.connect(killer_bubble_hit_player)
 	randomize() # Będziemy trochę losować, więc trzeba odpalić funkcję
 	# TODO: trzeba dodać ustawianie widoczności obiektów i pewnie zamrożenie gry albo zrobić coś aby gra nie grała ale 
 	# czekała na sygnał z ekranu startowego. Chyba w Creepy jest coś takiego zrobione
@@ -41,6 +43,7 @@ func create_some_score_bubbles():
 ## Funkcja generuje bańkę, która zabija gracza. Jest 50% szans na utworzenie takiej bańki
 func create_killer_bubble():
 	var create_killer = [true, false][randi() % 2]
+	create_killer = true # linijka do wyrzucenia po testach
 	if create_killer:
 		var new_killer = _bubble_killer_scene.instantiate()
 		add_child(new_killer)
@@ -54,5 +57,10 @@ func _on_timer_bubble_generator_timeout():
 	create_killer_bubble()
 #endregion
 
-
+func killer_bubble_hit_player():
+	# Próbowałem na różne sposoby. Finalnie trzeba będzie dodać jakiś message na nulla. Można
+	# też przejść na ręczne zmienianie scen lub ładowanie node jako instancji ale wtedy trzeba
+	# przebudować wszystko bo stronę menu mamy kilka razy na ekranie. Można też zmienić podejście
+	# w programie na ukrywanie obiektów na jednej scenie a menu zrobić jako canvaslayer
+	get_tree().change_scene_to_packed(_start_scene)
 
