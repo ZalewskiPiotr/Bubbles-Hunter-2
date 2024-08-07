@@ -3,11 +3,6 @@ extends Control
 var _help_scene : PackedScene = load("res://scenes/help_menu.tscn")
 var _main_scene : PackedScene = load("res://scenes/main_node.tscn")
 
-func _init():
-	print("jestem w init")
-	
-func _ready():
-	print("jestem w ready")
 
 func _on_button_play_pressed():
 	#get_tree().change_scene_to_file("res://scenes/main_node.tscn")

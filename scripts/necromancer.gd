@@ -4,7 +4,7 @@ class_name Necromancer
 
 #region Stałe i zmienne
 const SPEED = 300.0		# Szybkość gracza
-var _start_scene : PackedScene = load("res://scenes/start_menu.tscn")
+# var _start_scene : PackedScene = load("res://scenes/start_menu.tscn")
 #endregion
 
 
@@ -42,11 +42,6 @@ func detect_collision():
 			collider.hit() # zawołamy metodę hit z BubbleScore
 			GameEvents.OnScoreBubbleHit.emit() # z Necromancer wyemitujemy sygnał AddPoint. Ten sygnał złapie HUD i zaktualizuje punktację
 		elif collider is BubbleKiller:
-			print("killer hit")
 			collider.hit()
-			print(get_tree())
-			#get_tree().change_scene_to_file("res://scenes/start_menu.tscn")
-			get_tree().change_scene_to_packed(_start_scene)
-			# zawołamy metodę hit z BubbleKiller, która usunie bańkę
-			# wyemitujemy sygnał death
+			GameEvents.OnKillerBubbleHit.emit()
 #endregion
