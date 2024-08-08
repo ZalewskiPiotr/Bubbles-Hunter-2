@@ -4,7 +4,6 @@ class_name Necromancer
 
 #region Stałe i zmienne
 const SPEED = 300.0		# Szybkość gracza
-# var _start_scene : PackedScene = load("res://scenes/start_menu.tscn")
 #endregion
 
 
@@ -19,7 +18,7 @@ func _physics_process(delta: float):
 #endregion
 
 
-#region Zarządzanie ruchem gracza - szybkośc, animacja, itd
+#region Zarządzanie ruchem gracza - szybkość, animacja, itd
 ## Funkcja ustawia szybkość gracza
 ##
 ## Szybkość ustawiana jest na podstawie kierunku poruszania się gracza. Kierunek ten jest 
@@ -33,6 +32,9 @@ func set_player_speed():
 
 
 #region Kolizje
+## Zarządzanie kolizjami
+##
+## Funckja zarządza tym co się ma wydarzyć w czasie kolizji pomiędzy bańkami a graczem
 func detect_collision():
 	var collision_count : int = get_slide_collision_count()
 	for i : int in collision_count:
@@ -40,7 +42,7 @@ func detect_collision():
 		var collider : Object = collision.get_collider()
 		if collider is BubbleScore:
 			collider.hit() # zawołamy metodę hit z BubbleScore
-			GameEvents.OnScoreBubbleHit.emit() # z Necromancer wyemitujemy sygnał AddPoint. Ten sygnał złapie HUD i zaktualizuje punktację
+			GameEvents.OnScoreBubbleHit.emit()
 		elif collider is BubbleKiller:
 			collider.hit()
 			GameEvents.OnKillerBubbleHit.emit()

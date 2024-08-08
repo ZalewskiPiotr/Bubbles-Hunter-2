@@ -9,7 +9,7 @@ const MIN_BUBBLE_AMOUNT : int = 1	# Minimum number of bubbles in one draw
 const MAX_BUBBLE_AMOUNT : int = 5	# Maximum number of bubbles in one draw
 var _bubble_score_scene = preload("res://scenes/bubble_score.tscn")		# Scena potrzebna do tworzenia wielu obiektów typu tej sceny
 var _bubble_killer_scene = preload("res://scenes/bubble_killer.tscn")	# Scena potrzebna do tworzenia wielu obiektów typu tej sceny
-var _start_scene : PackedScene = load("res://scenes/start_menu.tscn")
+var _start_scene : PackedScene = load("res://scenes/start_menu.tscn")	# Scena zawierajaca menu główne
 #endregion
 
 #region Wbudowane funkcje silnika Godot
@@ -19,11 +19,7 @@ var _start_scene : PackedScene = load("res://scenes/start_menu.tscn")
 func _ready():
 	GameEvents.OnKillerBubbleHit.connect(killer_bubble_hit_player)
 	randomize() # Będziemy trochę losować, więc trzeba odpalić funkcję
-	# TODO: trzeba dodać ustawianie widoczności obiektów i pewnie zamrożenie gry albo zrobić coś aby gra nie grała ale 
-	# czekała na sygnał z ekranu startowego. Chyba w Creepy jest coś takiego zrobione
-	#region TEMP Jak już zrobimt ekran startowy to poniższy kod będzie do przenisienia w noe miejsce
 	create_some_score_bubbles()
-	#endregion
 #endregion
 
 
@@ -57,6 +53,12 @@ func _on_timer_bubble_generator_timeout():
 	create_killer_bubble()
 #endregion
 
+
+#region Trafienia gracza przez BubbleKiller
+## Trafienia w gracza
+##
+## Funkcja zarządza tym co się stanie jak gracz zsotanie trafiony przez bańkę killera. Obecnie
+## takie zdarzenie kończy grę
 func killer_bubble_hit_player():
 	# Próbowałem na różne sposoby. Finalnie trzeba będzie dodać jakiś message na nulla. Można
 	# też przejść na ręczne zmienianie scen lub ładowanie node jako instancji ale wtedy trzeba
@@ -68,4 +70,4 @@ func killer_bubble_hit_player():
 				killer_bubble_hit_player")
 	else:
 		get_tree().change_scene_to_packed(_start_scene)
-
+#endregion
