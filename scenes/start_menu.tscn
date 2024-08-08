@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbf00qg3mm6rs"]
+[gd_scene load_steps=3 format=3 uid="uid://dbf00qg3mm6rs"]
 
 [ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_dcl5v"]
+[ext_resource type="Theme" uid="uid://dqb4sfw3pi1fm" path="res://themes/bubble_game_style.tres" id="2_edtpk"]
 
 [node name="start_menu" type="Control"]
 layout_mode = 3
@@ -11,30 +12,73 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dcl5v")
 
-[node name="ButtonPlay" type="Button" parent="."]
-layout_mode = 0
-offset_left = 445.0
-offset_top = 142.0
-offset_right = 537.0
-offset_bottom = 181.0
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -294.0
+offset_top = 22.0
+offset_right = 294.0
+offset_bottom = 163.0
+grow_horizontal = 2
+theme = ExtResource("2_edtpk")
+theme_override_font_sizes/font_size = 85
+text = "BUBBLES HUNTER"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -129.0
+offset_right = 185.0
+offset_bottom = 129.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_edtpk")
+
+[node name="ButtonPlay" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 text = "PLAY"
 
-[node name="ButtonQuit" type="Button" parent="."]
-layout_mode = 0
-offset_left = 423.0
-offset_top = 247.0
-offset_right = 570.0
-offset_bottom = 284.0
-text = "QUIT"
-
-[node name="ButtonHelp" type="Button" parent="."]
-layout_mode = 0
-offset_left = 423.0
-offset_top = 193.0
-offset_right = 560.0
-offset_bottom = 238.0
+[node name="ButtonHelp" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 text = "HELP"
 
-[connection signal="pressed" from="ButtonPlay" to="." method="_on_button_play_pressed"]
-[connection signal="pressed" from="ButtonQuit" to="." method="_on_button_quit_pressed"]
-[connection signal="pressed" from="ButtonHelp" to="." method="_on_button_help_pressed"]
+[node name="ButtonQuit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "QUIT"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 532.0
+offset_right = 249.0
+offset_bottom = 597.0
+theme = ExtResource("2_edtpk")
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 13.0
+offset_right = 187.0
+offset_bottom = 40.0
+text = "AUTHOR: PiotrZET"
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 30.0
+offset_right = 157.0
+offset_bottom = 70.0
+text = "VERSION: 2.0.0"
+
+[connection signal="pressed" from="VBoxContainer/ButtonPlay" to="." method="_on_button_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonHelp" to="." method="_on_button_help_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]

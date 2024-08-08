@@ -18,6 +18,10 @@ config/features=PackedStringArray("4.2", "GL Compatibility")
 
 GameEvents="*res://scripts/game_events.gd"
 
+[display]
+
+window/size/resizable=false
+
 [input]
 
 player_move_left={
