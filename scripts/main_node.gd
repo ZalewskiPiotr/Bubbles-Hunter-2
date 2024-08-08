@@ -62,5 +62,10 @@ func killer_bubble_hit_player():
 	# też przejść na ręczne zmienianie scen lub ładowanie node jako instancji ale wtedy trzeba
 	# przebudować wszystko bo stronę menu mamy kilka razy na ekranie. Można też zmienić podejście
 	# w programie na ukrywanie obiektów na jednej scenie a menu zrobić jako canvaslayer
-	get_tree().change_scene_to_packed(_start_scene)
+	var tree : SceneTree = get_tree()
+	if tree == null:
+		print("ERROR: obiekt SceneTree is null w czasie zmiany sceny. Źródło 'main_node -> /
+				killer_bubble_hit_player")
+	else:
+		get_tree().change_scene_to_packed(_start_scene)
 
