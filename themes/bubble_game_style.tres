@@ -4,9 +4,11 @@
 [ext_resource type="StyleBox" uid="uid://cj52p7d42xb74" path="res://themes/panel_style.tres" id="2_nqh54"]
 
 [resource]
+default_font_size = 20
 Button/colors/font_hover_color = Color(0.215686, 0.94902, 1, 1)
 Button/font_sizes/font_size = 32
 Button/fonts/font = ExtResource("1_d0hii")
-Label/font_sizes/font_size = 20
 Label/fonts/font = ExtResource("1_d0hii")
+LinkButton/colors/font_hover_color = Color(0.215686, 0.94902, 1, 1)
+LinkButton/fonts/font = ExtResource("1_d0hii")
 Panel/styles/panel = ExtResource("2_nqh54")
