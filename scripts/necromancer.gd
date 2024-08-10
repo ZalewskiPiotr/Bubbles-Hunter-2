@@ -78,7 +78,7 @@ func detect_collision():
 		elif collider is BubbleKiller:
 			collider.hit()
 			_player_alive = false
-			get_tree().call_group("Bubbles", "queue_free")
+			GameEvents.JustBeforeGameOver.emit()
 			await _necromancer_sprite.animation_finished # Żeby wywołał się ten signal to animacja nie może być w pętli
 			GameEvents.OnKillerBubbleHit.emit()
 #endregion
