@@ -1,6 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwan6q8gk14q4"]
+[gd_scene load_steps=19 format=3 uid="uid://dwan6q8gk14q4"]
 
 [ext_resource type="Script" path="res://scripts/help_menu.gd" id="1_5oyeo"]
+[ext_resource type="Theme" uid="uid://dqb4sfw3pi1fm" path="res://themes/bubble_game_style.tres" id="2_831j3"]
+[ext_resource type="Texture2D" uid="uid://l8drqqoj5n72" path="res://assets/pictures/arrow_left_light.png" id="3_hxlvd"]
+[ext_resource type="Texture2D" uid="uid://cda76bgug5lks" path="res://assets/pictures/arrow_right_light.png" id="4_qjvqf"]
+[ext_resource type="Texture2D" uid="uid://cu0tg2wo80ugr" path="res://assets/pictures/arrow_up_light.png" id="5_8ogva"]
+[ext_resource type="Texture2D" uid="uid://b8exvdnqwokto" path="res://assets/pictures/arrow_down_light.png" id="6_4d0n5"]
+[ext_resource type="Texture2D" uid="uid://b1q84w7escj2x" path="res://assets/pictures/a_key_light.png" id="7_u5s11"]
+[ext_resource type="Texture2D" uid="uid://ltxfx0cjakcg" path="res://assets/pictures/d_light.png" id="8_3h1hd"]
+[ext_resource type="Texture2D" uid="uid://b7lbaky5hme3v" path="res://assets/pictures/s_light.png" id="9_h0epk"]
+[ext_resource type="Texture2D" uid="uid://ds3nrh5fgy1vx" path="res://assets/pictures/w_light.png" id="10_4ptjv"]
+[ext_resource type="Texture2D" uid="uid://duqrb5ys7vdij" path="res://assets/bubbles/bubble_1.png" id="11_4gyk6"]
+[ext_resource type="Texture2D" uid="uid://bh2h2lj5jhfj" path="res://assets/bubbles/bubble_2.png" id="12_6m13j"]
+[ext_resource type="Texture2D" uid="uid://ddr870kgd0mjg" path="res://assets/bubbles/bubble_3.png" id="13_ao2qw"]
+[ext_resource type="Texture2D" uid="uid://dt464qwg6snsa" path="res://assets/bubbles/bubble_4.png" id="14_4nxg2"]
+[ext_resource type="Texture2D" uid="uid://b6c1jt72pof1b" path="res://assets/bubbles/bubble_5.png" id="15_dgi5y"]
+[ext_resource type="Texture2D" uid="uid://c7vmfspb6vnw6" path="res://assets/bubbles/bubble_6.png" id="16_kdc6k"]
+[ext_resource type="Texture2D" uid="uid://cjdb7n1iteul6" path="res://assets/bubbles/bubble_7.png" id="17_atg22"]
+[ext_resource type="Texture2D" uid="uid://dd3vaortcvv8v" path="res://assets/player/Necromancer_creativekind-Sheet.png" id="18_c2umu"]
 
 [node name="HelpMenu" type="Control"]
 layout_mode = 3
@@ -12,11 +29,188 @@ grow_vertical = 2
 script = ExtResource("1_5oyeo")
 
 [node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 278.0
-offset_top = 190.0
-offset_right = 323.0
-offset_bottom = 221.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -158.0
+offset_top = -156.0
+offset_right = 156.0
+offset_bottom = -95.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_831j3")
 text = "Back"
+
+[node name="PanelMoves" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 64.0
+offset_right = 485.0
+offset_bottom = 206.0
+theme = ExtResource("2_831j3")
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="PanelMoves"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 94.0
+offset_right = 53.0
+offset_bottom = 135.0
+texture = ExtResource("3_hxlvd")
+
+[node name="TextureRect2" type="TextureRect" parent="PanelMoves"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 94.0
+offset_right = 133.0
+offset_bottom = 135.0
+texture = ExtResource("4_qjvqf")
+
+[node name="TextureRect3" type="TextureRect" parent="PanelMoves"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 54.0
+offset_right = 93.0
+offset_bottom = 95.0
+texture = ExtResource("5_8ogva")
+
+[node name="TextureRect4" type="TextureRect" parent="PanelMoves"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 94.0
+offset_right = 93.0
+offset_bottom = 135.0
+texture = ExtResource("6_4d0n5")
+
+[node name="Label" type="Label" parent="PanelMoves"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_right = 90.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "PLAYER MOVES"
+
+[node name="TextureRect5" type="TextureRect" parent="PanelMoves"]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 94.0
+offset_right = 197.0
+offset_bottom = 135.0
+texture = ExtResource("7_u5s11")
+
+[node name="TextureRect6" type="TextureRect" parent="PanelMoves"]
+layout_mode = 0
+offset_left = 237.0
+offset_top = 94.0
+offset_right = 277.0
+offset_bottom = 135.0
+texture = ExtResource("8_3h1hd")
+
+[node name="TextureRect7" type="TextureRect" parent="PanelMoves"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 94.0
+offset_right = 237.0
+offset_bottom = 135.0
+texture = ExtResource("9_h0epk")
+
+[node name="TextureRect8" type="TextureRect" parent="PanelMoves"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 54.0
+offset_right = 237.0
+offset_bottom = 95.0
+texture = ExtResource("10_4ptjv")
+
+[node name="PanelActors" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 64.0
+offset_right = 1120.0
+offset_bottom = 344.0
+theme = ExtResource("2_831j3")
+metadata/_edit_group_ = true
+
+[node name="Title" type="Label" parent="PanelActors"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -85.0
+offset_right = 85.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "GAME ACTORS"
+
+[node name="Player" type="Sprite2D" parent="PanelActors"]
+position = Vector2(187, 78.5)
+texture = ExtResource("18_c2umu")
+region_enabled = true
+region_rect = Rect2(54.6003, 57.258, 54.2845, 61.4942)
+
+[node name="Killer" type="Sprite2D" parent="PanelActors"]
+modulate = Color(0.772549, 0, 0.0196078, 1)
+position = Vector2(187, 126.5)
+texture = ExtResource("14_4nxg2")
+
+[node name="Sprite2D1" type="Sprite2D" parent="PanelActors"]
+position = Vector2(187, 174.5)
+texture = ExtResource("11_4gyk6")
+
+[node name="Sprite2D2" type="Sprite2D" parent="PanelActors"]
+position = Vector2(227, 174.5)
+texture = ExtResource("12_6m13j")
+
+[node name="Sprite2D3" type="Sprite2D" parent="PanelActors"]
+position = Vector2(267, 174.5)
+texture = ExtResource("13_ao2qw")
+
+[node name="Sprite2D4" type="Sprite2D" parent="PanelActors"]
+position = Vector2(307, 174.5)
+texture = ExtResource("14_4nxg2")
+
+[node name="Sprite2D5" type="Sprite2D" parent="PanelActors"]
+position = Vector2(187, 214.5)
+texture = ExtResource("15_dgi5y")
+
+[node name="Sprite2D6" type="Sprite2D" parent="PanelActors"]
+position = Vector2(227, 214.5)
+texture = ExtResource("16_kdc6k")
+
+[node name="Sprite2D7" type="Sprite2D" parent="PanelActors"]
+position = Vector2(267, 214.5)
+texture = ExtResource("17_atg22")
+
+[node name="LabelPlayer" type="Label" parent="PanelActors"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 64.0
+offset_right = 151.0
+offset_bottom = 97.0
+text = "Player:"
+
+[node name="LabelKiller" type="Label" parent="PanelActors"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 112.0
+offset_right = 153.0
+offset_bottom = 145.0
+text = "Killer bubble:"
+
+[node name="LabelScore" type="Label" parent="PanelActors"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 176.0
+offset_right = 156.0
+offset_bottom = 209.0
+text = "Score bubbles:"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
