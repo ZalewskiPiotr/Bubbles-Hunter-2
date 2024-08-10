@@ -5,7 +5,7 @@ class_name Necromancer
 
 #region Stałe i zmienne
 const SPEED = 300.0		# Szybkość gracza
-var _player_alive : bool = true	# Informacja czy gracz jest ciągle żywy
+var _player_alive : bool = true		# Informacja czy gracz jest ciągle żywy
 #endregion
 
 
@@ -21,19 +21,24 @@ func _physics_process(delta: float):
 
 #region Zarządzanie ruchem gracza - szybkość, animacja, itd
 
-## Funkcja 
+## Funkcja zarządzająca ruchem i animacją
+##
+## Funkcja odpowiada za zarządzaniem ruchem i aktualnie odgrywaną animacją
 func move():
 	var direction : Vector2 = set_player_speed()
 	if direction.x > 0:
 		_necromancer_sprite.flip_h = false
 	else:
 		_necromancer_sprite.flip_h = true
-	play_animation(direction)
 	
+	play_animation(direction)
 	if _player_alive:
 		move_and_slide()
 	
-	
+
+## Animacja postaci gracza
+##
+## Funkcja odgrywa animację	postaci gracza w zależności od warunków: idle, move, death
 func play_animation(direction : Vector2):
 	if direction and _player_alive:
 		_necromancer_sprite.play("run")

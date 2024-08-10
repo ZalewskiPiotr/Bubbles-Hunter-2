@@ -66,7 +66,7 @@ func killer_bubble_hit_player():
 	# w programie na ukrywanie obiektów na jednej scenie a menu zrobić jako canvaslayer
 	var tree : SceneTree = get_tree()
 	if tree == null:
-		print("ERROR: obiekt SceneTree is null w czasie zmiany sceny. Źródło 'main_node -> /
+		print("ERROR: obiekt SceneTree jest null w czasie zmiany sceny. Źródło 'main_node -> /
 				killer_bubble_hit_player")
 	else:
 		get_tree().change_scene_to_packed(_start_scene)
