@@ -9,6 +9,7 @@ extends CanvasLayer
 #region Stałe i zmienne
 var _score : int						# Liczba punktów zdobytych przez gracza
 @onready var label_score = $LabelScore	# Kontrolka do wyświetlania punktów
+@onready var _label_final_score = $LabelFinalScore		# Kontrolka do wyświetlenia końcowego wyniku
 #endregion
 
 
@@ -20,6 +21,7 @@ func _ready():
 	GameEvents.OnScoreBubbleHit.connect(add_point)
 	clear_score()
 	show_score()
+	_label_final_score.visible = false
 #endregion
 
 
@@ -44,4 +46,12 @@ func show_score():
 ## Funkcja zeruje ogólny wynik gracza	
 func clear_score():
 	_score = 0
+	
+
+## Wyświetlenie końcowego wyniku gracza
+##
+## Funkcja wyświetla na środku okranu końcowy wynik gracza
+func show_final_score() -> void:
+	_label_final_score.text = "Your score: " + str(_score)
+	_label_final_score.visible = true
 #endregion

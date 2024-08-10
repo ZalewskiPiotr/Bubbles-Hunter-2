@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgkpnbs6k00vt"]
+[gd_scene load_steps=4 format=3 uid="uid://cgkpnbs6k00vt"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_lnsip"]
+[ext_resource type="Theme" uid="uid://dqb4sfw3pi1fm" path="res://themes/bubble_game_style.tres" id="2_nq0in"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8mded"]
 font_size = 30
@@ -16,5 +17,22 @@ offset_left = -28.0
 offset_right = 28.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme = ExtResource("2_nq0in")
 text = "SCORE:"
 label_settings = SubResource("LabelSettings_8mded")
+
+[node name="LabelFinalScore" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = -41.5
+offset_right = 165.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_nq0in")
+theme_override_font_sizes/font_size = 50
+text = "Your score: ???"

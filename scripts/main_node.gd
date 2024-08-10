@@ -10,6 +10,8 @@ const MAX_BUBBLE_AMOUNT : int = 5	# Maximum number of bubbles in one draw
 var _bubble_score_scene = preload("res://scenes/bubble_score.tscn")		# Scena potrzebna do tworzenia wielu obiektów typu tej sceny
 var _bubble_killer_scene = preload("res://scenes/bubble_killer.tscn")	# Scena potrzebna do tworzenia wielu obiektów typu tej sceny
 var _start_scene : PackedScene = load("res://scenes/start_menu.tscn")	# Scena zawierajaca menu główne
+@onready var _timer_bubble_generator = $Timers/TimerBubbleGenerator		# Timer od generowania baniek
+@onready var _hud = $Hud		# Obiekt HUD
 #endregion
 
 #region Wbudowane funkcje silnika Godot
@@ -18,6 +20,7 @@ var _start_scene : PackedScene = load("res://scenes/start_menu.tscn")	# Scena za
 ## Ustawiamy to co potrzebujemy na starcie gry
 func _ready():
 	GameEvents.OnKillerBubbleHit.connect(killer_bubble_hit_player)
+	GameEvents.JustBeforeGameOver.connect(just_before_game_over)
 	randomize() # Będziemy trochę losować, więc trzeba odpalić funkcję
 	create_some_score_bubbles()
 #endregion
@@ -66,8 +69,19 @@ func killer_bubble_hit_player():
 	# w programie na ukrywanie obiektów na jednej scenie a menu zrobić jako canvaslayer
 	var tree : SceneTree = get_tree()
 	if tree == null:
-		print("ERROR: obiekt SceneTree is null w czasie zmiany sceny. Źródło 'main_node -> /
+		print("ERROR: obiekt SceneTree jest null w czasie zmiany sceny. Źródło 'main_node -> /
 				killer_bubble_hit_player")
 	else:
 		get_tree().change_scene_to_packed(_start_scene)
+		
+
+## Porządki przed wyświetleniem planszy startowej
+##
+## Funkcja robi kilka porzadków przed wyświetleniem planszy startowej a po zakończeniu gry. Te
+## porządki to: usunięcie wszystkich aktywnych baniek, zatrzymanie generatora baniek, wyświetlenie
+## wyniku końcowego gracza.
+func just_before_game_over() -> void:
+	get_tree().call_group("Bubbles", "queue_free")
+	_timer_bubble_generator.stop()
+	_hud.show_final_score()
 #endregion
