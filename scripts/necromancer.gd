@@ -5,6 +5,7 @@ class_name Necromancer
 
 #region Stałe i zmienne
 const SPEED = 300.0		# Szybkość gracza
+var _player_alive : bool = true	# Informacja czy gracz jest ciągle żywy
 #endregion
 
 
@@ -28,13 +29,20 @@ func move():
 	else:
 		_necromancer_sprite.flip_h = true
 	play_animation(direction)
-	move_and_slide()
+	
+	if _player_alive:
+		move_and_slide()
+	
 	
 func play_animation(direction : Vector2):
-	if direction:
+	if direction and _player_alive:
 		_necromancer_sprite.play("run")
-	else:
+	elif !direction and _player_alive:
 		_necromancer_sprite.play("idle")
+	elif !_player_alive:
+		_necromancer_sprite.play("death")
+	else:
+		print("Unexpected situation")
 	
 	
 ## Funkcja ustawia szybkość gracza
@@ -64,6 +72,7 @@ func detect_collision():
 			GameEvents.OnScoreBubbleHit.emit()
 		elif collider is BubbleKiller:
 			collider.hit()
-			# TODO: trzeba odegrać animację śmierci gracza i poczekać na jej koniec
+			_player_alive = false
+			await _necromancer_sprite.animation_finished # Żeby wywołał się ten signal to animacja nie może być w pętli
 			GameEvents.OnKillerBubbleHit.emit()
 #endregion
