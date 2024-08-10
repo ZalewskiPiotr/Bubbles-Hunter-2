@@ -1,9 +1,11 @@
 extends CharacterBody2D
 class_name Necromancer
+@onready var _necromancer_sprite = $AnimatedSprite2D
 
 
 #region Stałe i zmienne
 const SPEED = 300.0		# Szybkość gracza
+var _player_alive : bool = true	# Informacja czy gracz jest ciągle żywy
 #endregion
 
 
@@ -12,22 +14,47 @@ const SPEED = 300.0		# Szybkość gracza
 ##
 ## Funkcja zarządza takimi aspektami gracza jak ruch, animacja, kolizje, itd
 func _physics_process(delta: float):
-	set_player_speed()
-	move_and_slide()
+	move()
 	detect_collision()
 #endregion
 
 
 #region Zarządzanie ruchem gracza - szybkość, animacja, itd
+
+## Funkcja 
+func move():
+	var direction : Vector2 = set_player_speed()
+	if direction.x > 0:
+		_necromancer_sprite.flip_h = false
+	else:
+		_necromancer_sprite.flip_h = true
+	play_animation(direction)
+	
+	if _player_alive:
+		move_and_slide()
+	
+	
+func play_animation(direction : Vector2):
+	if direction and _player_alive:
+		_necromancer_sprite.play("run")
+	elif !direction and _player_alive:
+		_necromancer_sprite.play("idle")
+	elif !_player_alive:
+		_necromancer_sprite.play("death")
+	else:
+		print("Unexpected situation")
+	
+	
 ## Funkcja ustawia szybkość gracza
 ##
 ## Szybkość ustawiana jest na podstawie kierunku poruszania się gracza. Kierunek ten jest 
 ## wyznaczany na podstawie przycisków jakie aktualnie wciska gracz
-func set_player_speed():
+func set_player_speed() -> Vector2:
 	var direction: Vector2 = Input.get_vector("player_move_left","player_move_right", \
 			"player_move_up","player_move_down")
 	direction.normalized()
 	velocity = direction * SPEED
+	return direction
 #endregion
 
 
@@ -45,5 +72,7 @@ func detect_collision():
 			GameEvents.OnScoreBubbleHit.emit()
 		elif collider is BubbleKiller:
 			collider.hit()
+			_player_alive = false
+			await _necromancer_sprite.animation_finished # Żeby wywołał się ten signal to animacja nie może być w pętli
 			GameEvents.OnKillerBubbleHit.emit()
 #endregion
