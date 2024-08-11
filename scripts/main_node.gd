@@ -42,7 +42,6 @@ func create_some_score_bubbles():
 ## Funkcja generuje bańkę, która zabija gracza. Jest 50% szans na utworzenie takiej bańki
 func create_killer_bubble():
 	var create_killer = [true, false][randi() % 2]
-	create_killer = true # linijka do wyrzucenia po testach
 	if create_killer:
 		var new_killer = _bubble_killer_scene.instantiate()
 		add_child(new_killer)
