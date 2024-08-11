@@ -213,4 +213,32 @@ offset_right = 156.0
 offset_bottom = 209.0
 text = "Score bubbles:"
 
+[node name="PanelKeys" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 232.0
+offset_right = 484.0
+offset_bottom = 376.0
+theme = ExtResource("2_831j3")
+
+[node name="Label" type="Label" parent="PanelKeys"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.0
+offset_right = 21.0
+offset_bottom = 33.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "KEYS"
+
+[node name="Label2" type="Label" parent="PanelKeys"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 40.0
+offset_right = 213.0
+offset_bottom = 73.0
+text = "ESC - quit to main menu"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

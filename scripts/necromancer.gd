@@ -74,10 +74,12 @@ func detect_collision():
 		var collider : Object = collision.get_collider()
 		if collider is BubbleScore:
 			collider.hit() # zawołamy metodę hit z BubbleScore
+			Sfx.play_score_bubble()
 			GameEvents.OnScoreBubbleHit.emit()
 		elif collider is BubbleKiller:
 			collider.hit()
 			_player_alive = false
+			Sfx.play_player_death()
 			GameEvents.JustBeforeGameOver.emit()
 			await _necromancer_sprite.animation_finished # Żeby wywołał się ten signal to animacja nie może być w pętli
 			GameEvents.OnKillerBubbleHit.emit()

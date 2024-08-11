@@ -63,11 +63,14 @@ func create_texture():
 
 ## Funkcja wskazuje w jakim miejscu pojawi się bańka
 ##
-## Zajrzyj na TODO w funkcji a jak już zrobisz dobrze to opisz to w tym miejscu
+## Funkcja generuje losową pozycję dla kżdej tworzonej bańki. Współrzędne losowane są z zasięgu okna gry
 func create_position():
-	# TODO: do poprawy. Na razie brana jest pozycja kursora myszki ale wolałbym mieć coś losowo z 
-	# obszaru gry
-	position = get_viewport().get_mouse_position()
+	# position = get_viewport().get_mouse_position()
+	var size_x : int = get_viewport_rect().size[0]
+	var size_y : int = get_viewport_rect().size[1]
+	var pos_x : int = randi_range(50, size_x - 50)
+	var pos_y : int = randi_range(-50, size_x + 50)
+	self.position = Vector2(pos_x, pos_y)
 #endregion
 
 

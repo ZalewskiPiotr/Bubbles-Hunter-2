@@ -11,12 +11,17 @@ config_version=5
 [application]
 
 config/name="Bubbles-hunter-2"
+config/description="This is short story about a Necromancer who wants to catch the bubbles."
+config/version="2.0.0"
 run/main_scene="res://scenes/start_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+config/icon="res://assets/2024-08-11_13h42_43.png"
 
 [autoload]
 
 GameEvents="*res://scripts/game_events.gd"
+Music="*res://scenes/music.tscn"
+Sfx="*res://scenes/sfx.tscn"
 
 [display]
 
@@ -46,6 +51,11 @@ player_move_down={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194322,"key_label":0,"unicode":0,"echo":false,"script":null)
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"echo":false,"script":null)
+]
+}
+ESC={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 
