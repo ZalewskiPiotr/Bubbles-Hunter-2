@@ -33,10 +33,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -185.0
-offset_top = -129.0
-offset_right = 185.0
-offset_bottom = 129.0
+offset_left = -448.0
+offset_top = -68.0
+offset_right = -78.0
+offset_bottom = 190.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_edtpk")
@@ -58,11 +58,12 @@ text = "QUIT"
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 544.0
-offset_right = 190.0
-offset_bottom = 626.0
+offset_left = 848.0
+offset_top = 512.0
+offset_right = 1022.0
+offset_bottom = 594.0
 theme = ExtResource("2_edtpk")
+metadata/_edit_group_ = true
 
 [node name="Label2" type="Label" parent="Panel"]
 layout_mode = 1
@@ -107,10 +108,10 @@ uri = "https://github.com/ZalewskiPiotr/Bubbles-Hunter-2/wiki"
 
 [node name="Panel2" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 707.0
-offset_top = 470.0
-offset_right = 1133.0
-offset_bottom = 629.0
+offset_left = 600.0
+offset_top = 256.0
+offset_right = 1026.0
+offset_bottom = 456.0
 theme = ExtResource("2_edtpk")
 metadata/_edit_group_ = true
 
@@ -128,70 +129,87 @@ text = "GAME ASSETS"
 [node name="Label2" type="Label" parent="Panel2"]
 layout_mode = 0
 offset_left = 12.0
-offset_top = 22.0
+offset_top = 35.0
 offset_right = 141.0
-offset_bottom = 55.0
+offset_bottom = 68.0
 text = "Necromancer: "
 
 [node name="Label3" type="Label" parent="Panel2"]
 layout_mode = 0
 offset_left = 60.0
-offset_top = 54.0
+offset_top = 67.0
 offset_right = 140.0
-offset_bottom = 87.0
+offset_bottom = 100.0
 text = "Bubbles: "
 
 [node name="Label4" type="Label" parent="Panel2"]
 layout_mode = 0
 offset_left = 83.0
-offset_top = 86.0
+offset_top = 99.0
 offset_right = 142.0
-offset_bottom = 119.0
+offset_bottom = 132.0
 text = "Music: "
 
 [node name="Label5" type="Label" parent="Panel2"]
 layout_mode = 0
 offset_left = 84.0
-offset_top = 118.0
+offset_top = 131.0
 offset_right = 141.0
-offset_bottom = 151.0
+offset_bottom = 164.0
 text = "Fonts: "
+
+[node name="Label6" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 162.0
+offset_right = 141.0
+offset_bottom = 195.0
+text = "Keys pictures: "
 
 [node name="LinkButton" type="LinkButton" parent="Panel2"]
 layout_mode = 0
 offset_left = 148.0
-offset_top = 22.0
+offset_top = 35.0
 offset_right = 323.0
-offset_bottom = 55.0
+offset_bottom = 68.0
 text = "creativekind.itch.io"
 uri = "https://creativekind.itch.io/necromancer-free"
 
 [node name="LinkButton2" type="LinkButton" parent="Panel2"]
 layout_mode = 0
 offset_left = 148.0
-offset_top = 54.0
+offset_top = 67.0
 offset_right = 279.0
-offset_bottom = 87.0
+offset_bottom = 100.0
 text = "cassala.itch.io"
 uri = "https://cassala.itch.io/bubble-sprites"
 
 [node name="LinkButton3" type="LinkButton" parent="Panel2"]
 layout_mode = 0
 offset_left = 148.0
-offset_top = 86.0
+offset_top = 99.0
 offset_right = 286.0
-offset_bottom = 119.0
+offset_bottom = 132.0
 text = "youfulca.itch.io"
 uri = "https://youfulca.itch.io/legendary-jrpg-battle-music-pack"
 
 [node name="LinkButton4" type="LinkButton" parent="Panel2"]
 layout_mode = 0
 offset_left = 148.0
-offset_top = 118.0
+offset_top = 131.0
 offset_right = 387.0
-offset_bottom = 151.0
+offset_bottom = 164.0
 text = "choret-fudyng-bubble.font"
 uri = "https://www.dafont.com/choret-fudyng-bubble.font"
+
+[node name="LinkButton5" type="LinkButton" parent="Panel2"]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 161.0
+offset_right = 398.0
+offset_bottom = 194.0
+text = "mrbreakfastsdelight.itch.io"
+uri = "https://mrbreakfastsdelight.itch.io/mr-breakfasts-free-prompts"
 
 [connection signal="pressed" from="VBoxContainer/ButtonPlay" to="." method="_on_button_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/ButtonHelp" to="." method="_on_button_help_pressed"]
