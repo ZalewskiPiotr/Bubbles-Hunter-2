@@ -72,4 +72,3 @@ func create_position():
 func hit():
 	queue_free()
 #endregion
-
