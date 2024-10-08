@@ -89,7 +89,7 @@ offset_right = 60.0
 offset_bottom = 23.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "VERSION: 2.0.0"
+text = "VERSION: 2.1.0"
 
 [node name="LinkButton" type="LinkButton" parent="Panel"]
 layout_mode = 1

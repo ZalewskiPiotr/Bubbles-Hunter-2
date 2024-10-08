@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Bubbles-hunter-2"
 config/description="This is short story about a Necromancer who wants to catch the bubbles."
-config/version="2.0.0"
+config/version="2.1.0"
 run/main_scene="res://scenes/start_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://assets/2024-08-11_13h42_43.png"
