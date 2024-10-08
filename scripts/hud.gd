@@ -10,6 +10,7 @@ extends CanvasLayer
 var _score : int						# Liczba punktów zdobytych przez gracza
 @onready var label_score = $LabelScore	# Kontrolka do wyświetlania punktów
 @onready var _label_final_score = $LabelFinalScore		# Kontrolka do wyświetlenia końcowego wyniku
+@onready var _label_lives: Label = $LabelLives			# Kontrolka do wyświetlania ilości żyć
 #endregion
 
 
@@ -21,6 +22,7 @@ func _ready():
 	GameEvents.OnScoreBubbleHit.connect(add_point)
 	clear_score()
 	show_score()
+	show_lives(3)
 	_label_final_score.visible = false
 #endregion
 
@@ -54,4 +56,11 @@ func clear_score():
 func show_final_score() -> void:
 	_label_final_score.text = "Your score: " + str(_score)
 	_label_final_score.visible = true
+#endregion
+
+
+#region Zarządzanie życiem
+## Wyświetlenie ilości żyć na ekranie	
+func show_lives(lives : int) -> void:
+	_label_lives.text = "LIVES: " + str(lives)
 #endregion

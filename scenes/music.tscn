@@ -9,15 +9,10 @@
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_w7adp"]
 streams_count = 5
 stream_0/stream = ExtResource("1_yxpy6")
-stream_0/weight = 1.0
 stream_1/stream = ExtResource("2_81qws")
-stream_1/weight = 1.0
 stream_2/stream = ExtResource("3_l0kqd")
-stream_2/weight = 1.0
 stream_3/stream = ExtResource("4_b25th")
-stream_3/weight = 1.0
 stream_4/stream = ExtResource("5_06bkd")
-stream_4/weight = 1.0
 
 [node name="Music" type="AudioStreamPlayer"]
 stream = SubResource("AudioStreamRandomizer_w7adp")

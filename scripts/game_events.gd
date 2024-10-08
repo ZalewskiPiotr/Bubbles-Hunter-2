@@ -15,12 +15,3 @@ signal OnScoreBubbleHit
 ## Emisja sygnału: necromancer.gd -> detect_collision()
 ## Odbiór sygnału: main_node.gd -> _ready()
 signal OnKillerBubbleHit
-
-## Zakończenie gry
-##
-## Zdarzenie wywoływane jest tuż przed zakończeniem gry. Już po śmierci gracza ale jeszcze przed
-## wyświetleniem ekranu startowego. Zdarzenie jest wykorzystywane do zatrzymania różnych mechanik 
-## w grze oraz wyświetlenia wyniku gracza
-## Emisja sygnału: necromancer.gd -> detect_collision()
-## Odbiór sygnału: main_node.gd -> _ready()
-signal JustBeforeGameOver

@@ -80,7 +80,10 @@ func detect_collision():
 			collider.hit()
 			_player_alive = false
 			Sfx.play_player_death()
-			GameEvents.JustBeforeGameOver.emit()
 			await _necromancer_sprite.animation_finished # Żeby wywołał się ten signal to animacja nie może być w pętli
 			GameEvents.OnKillerBubbleHit.emit()
+
+
+func continue_game() -> void:
+	_player_alive = true
 #endregion
