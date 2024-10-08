@@ -12,6 +12,8 @@ var _bubble_killer_scene = preload("res://scenes/bubble_killer.tscn")	# Scena po
 var _start_scene : PackedScene = load("res://scenes/start_menu.tscn")	# Scena zawierajaca menu główne
 @onready var _timer_bubble_generator = $Timers/TimerBubbleGenerator		# Timer od generowania baniek
 @onready var _hud = $Hud		# Obiekt HUD
+@onready var _necromancer: Necromancer = $Necromancer
+var _lives : int # Ilość żyć gracza
 #endregion
 
 #region Wbudowane funkcje silnika Godot
@@ -20,9 +22,9 @@ var _start_scene : PackedScene = load("res://scenes/start_menu.tscn")	# Scena za
 ## Ustawiamy to co potrzebujemy na starcie gry
 func _ready():
 	GameEvents.OnKillerBubbleHit.connect(killer_bubble_hit_player)
-	GameEvents.JustBeforeGameOver.connect(just_before_game_over)
 	randomize() # Będziemy trochę losować, więc trzeba odpalić funkcję
 	create_some_score_bubbles()
+	_lives = 3
 
 ## Łapanie akcji użytkownika
 ##
@@ -70,8 +72,14 @@ func _on_timer_bubble_generator_timeout():
 ## Funkcja zarządza tym co się stanie jak gracz zsotanie trafiony przez bańkę killera. Obecnie
 ## takie zdarzenie kończy grę
 func killer_bubble_hit_player():
-	_switch_to_main_menu()
-		
+	_lives -= 1
+	print("Zycia: ", _lives)
+	if _lives == 0:
+		just_before_game_over()
+		_switch_to_main_menu()
+	else:
+		_hud.show_lives(_lives)
+		_necromancer.continue_game()
 		
 ## Porządki przed wyświetleniem planszy startowej
 ##
